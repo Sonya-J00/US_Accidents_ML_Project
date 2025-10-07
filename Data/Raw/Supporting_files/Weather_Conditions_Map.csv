@@ -1,0 +1,55 @@
+Weather_Condition,Weather_Simplified
+Fair,Fair
+Mostly Cloudy,Cloudy
+Cloudy,Cloudy
+Partly Cloudy,Cloudy
+Light Rain,Rain
+Fair / Windy,Windy
+Light Snow,Snow
+Rain,Rain
+Wintry Mix,Snow
+Haze,Haze
+Cloudy / Windy,Windy
+Smoke,Smoke
+Heavy Rain,Rain
+Thunder in the Vicinity,Storm
+Light Rain with Thunder,Storm
+Snow,Snow
+T-Storm / Windy,Storm
+Mostly Cloudy / Windy,Windy
+Fog,Fog
+Snow / Windy,Snow
+Overcast,Cloudy
+Light Snow / Windy,Snow
+Light Drizzle / Windy,Rain
+T-Storm,Storm
+Partly Cloudy / Windy,Windy
+Light Rain / Windy,Rain
+Thunder,Storm
+Heavy T-Storm,Storm
+Heavy Snow,Snow
+Haze / Windy,Haze
+Light Drizzle,Rain
+Smoke / Windy,Smoke
+Patches of Fog,Fog
+Heavy T-Storm / Windy,Storm
+Rain / Windy,Rain
+Heavy Rain / Windy,Rain
+Fog / Windy,Fog
+Drizzle,Rain
+Wintry Mix / Windy,Snow
+Light Freezing Drizzle,Ice
+Blowing Dust / Windy,Dust
+Drifting Snow / Windy,Snow
+Mist,Fog
+Light Freezing Rain,Ice
+Showers in the Vicinity,Rain
+Light Rain Shower,Rain
+Heavy Drizzle,Rain
+Shallow Fog,Fog
+Blowing Snow,Snow
+Snow and Sleet,Snow
+Blowing Snow / Windy,Snow
+Light Freezing Rain / Windy,Ice
+Blowing Dust,Dust
+Heavy Snow / Windy,Snow
