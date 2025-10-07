@@ -75,9 +75,7 @@
 
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- US city and county population data from the United States Census Bureau (https://www.census.gov/programs-surveys/acs/)
 
 ### Media
 
