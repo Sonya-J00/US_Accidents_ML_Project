@@ -1,12 +1,22 @@
-# Project XYZ
+# US Car Accidents - Predicting Clearance Time Categories
 
-**Project XYZ** is a comprehensive data analysis tool designed to streamline data exploration, analysis, and visualisation. The tool supports multiple data formats and provides an intuitive interface for both novice and expert data scientists.
+This project develops a data-driven tool to predict US car accident clearance times, categorised as either: 
+- short (< 1 hr) 
+- moderate (1 - 6 hr) 
+- long (6 - 24 hr) or 
+- very long (> 24 hr) 
+
+Through exploratory data analysis (EDA), key factors such as location, distance, weather conditions and month, are examined to uncover patterns influencing the time taken to clear an accident. 
+
+A machine learning model is then trained, and evaluated using performance metrics such as accuracy and f1-score, to classify new incidents into a clearance time category. The results are visualised through an interactive Power BI dashboard that displaysreal-time predictions, feature importance and historical trends.
+
+These tools were developed to enable traffic management authorities anticipate road clearance durations to allocate resources efficiently, manage congestion and communicate accurate travel updates. This data solution integrates data analysis, predictive modeling and intuitive visualisations to support informed, data-driven decision making in traffic management.
 
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 
 ## Dataset Content
-* Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size of 100Gb.
+* The dataset 
 
 
 ## Business Requirements
