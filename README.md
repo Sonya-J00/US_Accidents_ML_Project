@@ -16,11 +16,21 @@ These tools were developed to enable traffic management authorities anticipate r
 
 
 ## Dataset Content
-* The dataset 
+
+The dataset used for this project is a subsample (500 K) of a larger dataset (~7.7 M) of car accidents that covers 49 states of the USA. The accident data were collected from January 2016 to March 2023, using multiple APIs that provide streaming traffic incident (or event) data. These APIs broadcast traffic data captured by various entities, including the US and state departments of transportation, law enforcement agencies, traffic cameras, and traffic sensors within the road networks. 
+
+The data includes detailed records of:
+- Accident details: ID, location (latitude/ longitude, timezone, state, county, city, street, zipcode), affected distance, severity level and description
+- Temporal features: start and end time
+- Environmental conditions: weather condition report,  temperature, pressure, precipitation wind speed and direction etc.
+- Features of accident: at amenities, traffic signal, station, railway, crossing etc.
 
 
 ## Business Requirements
-* Describe your business requirements
+
+The project is designed to meet the following business needs:
+
+- Describe your business requirements
 
 
 ## Hypothesis and how to validate?
