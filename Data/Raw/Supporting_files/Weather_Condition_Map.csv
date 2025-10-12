@@ -2,7 +2,7 @@ Weather_Condition,Weather_Simplified
 Fair,Fair
 Mostly Cloudy,Cloudy
 Cloudy,Cloudy
-Partly Cloudy,Rain
+Partly Cloudy,Cloudy
 Light Rain,Rain
 Fair / Windy,Windy
 Light Snow,Snow
@@ -37,16 +37,20 @@ Rain / Windy,Rain
 Heavy Rain / Windy,Rain
 Fog / Windy,Fog
 Drizzle,Rain
-Mist,Mist
-Shallow Fog,Fog
-Showers in the Vicinity,Rain
-Clear,Fair
-Ice Pellets,Ice
-Light Freezing Drizzle,Ice
-Drifting Snow / Windy,Snow
+Blowing Snow,Snow
+Scattered Clouds,Cloudy
 Light Freezing Rain,Ice
-Blowing Snow / Windy,Snow
-Light Snow Shower,Snow
-Heavy Drizzle,Rain
+Showers in the Vicinity,Rain
+Thunder / Windy,Storm
+Shallow Fog,Fog
+Light Freezing Drizzle,Rain
+Mist,Mist
+Light Ice Pellets,Ice
+Heavy Sleet,Snow
 Heavy Snow / Windy,Snow
+Snow and Sleet,Snow
+Light Snow and Sleet,Snow
+Light Sleet,Snow
 Drizzle and Fog,Fog
+Blowing Snow / Windy,Snow
+Snow and Sleet / Windy,Snow
