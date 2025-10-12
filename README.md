@@ -51,7 +51,52 @@ The project is designed to meet the following business needs:
 
 **Data Cleaning**
 
-- Import and explore dataset; handle missing values and repeated rows
+- Import and explore dataset 
+- Handle missing values
+- Check for unique incident IDs
+- Handdle repeated rows
+
+**Subsampling**
+
+- Use "Start_Time" and "End_Time" to obtain "Clearance_Time(hr)" => "Clearance_Class" (the target)
+- Use "Clearance_Class" to subsample the data (500 K rows) into a smaller, 10 K row dataset with classes as equal as possible 
+
+**Feature Engineering**
+
+- Use "Start_Time" to extract month = > "Month"
+- Use "City" and "County" to merge US Census population data => "Population"
+- Aggregate States and Counties that appear less than 5 time => "State_Other" and "County_Other"
+- Aggregate and simplify "Weather_Condition" => "Weather_Simplified
+- Use "Street" to obtain the type of road the accident happened on => "Road_Type" 
+- Align symbols and words in "Wind_Direction
+
+**Exploratory Data Analysis (EDA)**
+
+- Analyse distribution of numerical variables via histograms and KDE plots; check for normality
+- Analyse count distribution of categorical variables via stacked bar chart; assess statistical significance between clearance class using chi-squared
+- Analyse count distributio of boolean variables via stacked bar chart; assess statistical significance between clearance class using chi-squared
+- Analyse clearance times by categoric variable via box plot; assess statistical significance using Kruskal-Wallis test
+- Analyse clearance times by boolean variable via box plot; assess statistical significance using Mann-Whitney U test
+- Analyse clearance times by numerical variables via scatter plot
+- Produce a correlation matrix comparing relationships between all variables (numerical and categorical)
+- Note: transformation of Clearance_Time(hr) added to aid visualisations
+- Note: binning of "Population" to assess changes in clearance classes; contingency table and stacked bar chart to visualise differences; assessed statistical significance by chi-squared test
+
+**Transformation of Numerical Variables**
+- Find out which transformers work best for each numberical variable, except Start_Lat and Start_Lng, which are not technically numeric
+
+**Preprocessing and Modeling**
+- Scale numerical data and One-Hot encode categorical data
+- To model with and without transformation of numerical variables
+- To model with and without scaled Start_Lat and Start_Lng
+- To model with and without variables that did not reach statistical significance
+- To compare multiple models using GridsearchCV, including tree, logistic regression and neural network based algorithms
+- To perform hyperparameter optimisation for 2 best candidates before selecting the model with overall best accuracy performance
+- To extract the top 20 most important features from the model 
+
+**Dashboard**
+
+- 
 
 ## The rationale to map the business requirements to the Data Visualisations
 * List your business requirements and a rationale to map them to the Data Visualisations
@@ -87,8 +132,7 @@ The project uses a preprocessing and model pipeline that:
 
 
 ## Ethical considerations
-* Were there any data privacy, bias or fairness issues with the data?
-* How did you overcome any legal or societal issues?
+Data is anonymouse and not traceable to individuals, therefore, there are no ethical considerations that need to be taken into account.
 
 ## Dashboard Design
 * List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
@@ -105,20 +149,6 @@ The project uses a preprocessing and model pipeline that:
 * What challenges did you face, and what strategies were used to overcome these challenges?
 * What new skills or tools do you plan to learn next based on your project experience? 
 
-## Deployment
-### Heroku
-
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. From the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
-
 
 ## Main Data Analysis Libraries
 * Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
@@ -126,6 +156,8 @@ The project uses a preprocessing and model pipeline that:
 
 ## Credits 
 
+- For the dataset: Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. "Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights." In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
+- ChatGPT: for 
 * In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
 * You can break the credits section up into Content and Media, depending on what you have included in your project. 
 
@@ -139,6 +171,5 @@ The project uses a preprocessing and model pipeline that:
 - The images used for the gallery page were taken from this other open-source site
 
 
-
 ## Acknowledgements (optional)
-* Thank the people who provided support through this project.
+* I would like to thank Neil and Vasi for their help and support
