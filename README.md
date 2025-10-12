@@ -51,7 +51,7 @@ The project is designed to meet the following business needs:
 
 **Data Cleaning**
 
-- 
+- Import and explore dataset; handle missing values and repeated rows
 
 ## The rationale to map the business requirements to the Data Visualisations
 * List your business requirements and a rationale to map them to the Data Visualisations
