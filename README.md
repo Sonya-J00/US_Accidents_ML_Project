@@ -32,7 +32,8 @@ The data includes detailed records of:
 The project is designed to meet the following business needs:
 
 - Predictive Modeling: develop a model that predicts the clearance time category of new or ongoing accidents
-- Insight Generation: identify key factors that influence prolonged clearance times
+    - It is more important that *Long* and *Very Long* clearance times be predicted accuracy compared to *Short* and *Moderate*, as they will require more planning and resources 
+- Insight Generation: identify key factors that influence prolonged clearance times, and also if the model could benefit from more detailed variables
 - Dashboard Visualisation: create an interactive dashboard displaying predicted clearance categories, contributing factors and historical trends
 - Decision Support: provide interpretable outputs to support operational decision making for traffic management teams 
 
