@@ -1,6 +1,7 @@
 # US Car Accidents - Predicting Clearance Time Categories
 
 This project develops a data-driven tool to predict US car accident clearance times, categorised as either: 
+
 - short (< 1 hr) 
 - moderate (1 - 6 hr) 
 - long (6 - 24 hr) or 
@@ -8,7 +9,7 @@ This project develops a data-driven tool to predict US car accident clearance ti
 
 Through exploratory data analysis (EDA), key factors such as location, distance, weather conditions and month, are examined to uncover patterns influencing the time taken to clear an accident. 
 
-A machine learning model is then trained, and evaluated using performance metrics such as accuracy and f1-score, to classify new incidents into a clearance time category. The results are visualised through an interactive Power BI dashboard that displaysreal-time predictions, feature importance and historical trends.
+A Gradient Boosting classifier model was trained, and evaluated using a confusion matrix and performance metrics such as accuracy and f1-score, to classify new incidents into a clearance time category. The results, including feature importance, are visualised through an interactive Power BI dashboard that displaysreal-time predictions, feature importance and historical trends.
 
 These tools were developed to enable traffic management authorities anticipate road clearance durations to allocate resources efficiently, manage congestion and communicate accurate travel updates. This data solution integrates data analysis, predictive modeling and intuitive visualisations to support informed, data-driven decision making in traffic management.
 
@@ -30,11 +31,14 @@ The data includes detailed records of:
 
 The project is designed to meet the following business needs:
 
-- Describe your business requirements
-
+- Predictive Modeling: develop a model that predicts the clearance time category of new or ongoing accidents
+- Insight Generation: identify key factors that influence prolonged clearance times
+- Dashboard Visualisation: create an interactive dashboard displaying predicted clearance categories, contributing factors and historical trends
+- Decision Support: provide interpretable outputs to support operational decision making for traffic management teams 
 
 ## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them) 
+- Adverse weather impacts clearance times
+- 
 
 ## Project Plan
 * Outline the high-level steps taken for the analysis.
@@ -49,6 +53,30 @@ The project is designed to meet the following business needs:
 * How did you structure the data analysis techniques. Justify your response.
 * Did the data limit you, and did you use an alternative approach to meet these challenges?
 * How did you use generative AI tools to help with ideation, design thinking and code optimisation?
+
+## Modele Overview
+
+The best performing model is a Gradient Boosting Classifier, optimised through hyperparameter tuning using grid search and cross-validation.
+
+|           |   Accuracy    |    Macro f1   |
+|-----------|---------------|---------------|
+|  train    |     0.79      |     0.79      |
+|  test     |     0.61      |     0.62      |
+
+
+The model demonstrates moderate performance, with some class imbalance effects; it effectively distinguishes *Short* (0.69) and *Very Long* (0.73) classes compared to *Moderate* (0.43) and *Long* (0.61). This likely represents overlapping patterns in the underlying features.
+
+The model attempts to balance bias and variance, but there is some overfitting and room for improvement via additional data features (e.g. persons injured, ambulence/ fire service needed), feature engineering (extraction of more data from location) or ensemble methods. 
+
+**Model Pipeline**
+
+The project uses a preprocessing and model pipeline that:
+
+- Encodes categorical variables using OneHotEncoder
+- Scales numerical variables using StandardScaler
+- Trains the model using cross-validation (accuracy)
+- Evaluates performance using confusion matrix and classification report
+
 
 ## Ethical considerations
 * Were there any data privacy, bias or fairness issues with the data?
