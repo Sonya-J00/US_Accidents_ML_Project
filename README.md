@@ -37,13 +37,21 @@ The project is designed to meet the following business needs:
 - Decision Support: provide interpretable outputs to support operational decision making for traffic management teams 
 
 ## Hypothesis and how to validate?
-- Adverse weather impacts clearance times
-- 
+- Adverse weather increases clearance times
+    - Visualise changes in clearance class (stacked bar chart) and clearance times (box plot) by weather conditions. Use chi-squared and kruskal-Wallis to test for statistical significance 
+
+- Accidents with higher severity level take longer to clear
+    - Visualise changes in clearance class (stacked bar chart) and clearance times (box plot) by weather conditions. Use chi-squared and kruskal-Wallis to test for statistical significance 
+
+- The population of the incident area will inpact clearance times
+    - Visualise differences in clearance class distribution (histogram) and clearance times (scatter plot) and test for statistical significance.
+    - As neither of the above visualisations gave a clear picture, population was binned, a contingency table by clearance category made, and chi-squared used to test for statistical significance
 
 ## Project Plan
-* Outline the high-level steps taken for the analysis.
-* How was the data managed throughout the collection, processing, analysis and interpretation steps?
-* Why did you choose the research methodologies you used?
+
+**Data Cleaning**
+
+- 
 
 ## The rationale to map the business requirements to the Data Visualisations
 * List your business requirements and a rationale to map them to the Data Visualisations
@@ -66,7 +74,7 @@ The best performing model is a Gradient Boosting Classifier, optimised through h
 
 The model demonstrates moderate performance, with some class imbalance effects; it effectively distinguishes *Short* (0.69) and *Very Long* (0.73) classes compared to *Moderate* (0.43) and *Long* (0.61). This likely represents overlapping patterns in the underlying features.
 
-The model attempts to balance bias and variance, but there is some overfitting and room for improvement via additional data features (e.g. persons injured, ambulence/ fire service needed), feature engineering (extraction of more data from location) or ensemble methods. 
+The model attempts to balance bias and variance, but there is some overfitting and room for improvement via additional data features (e.g. persons injured, ambulence/ fire service needed), feature engineering (extraction of more data from location and datetime) or ensemble methods. 
 
 **Model Pipeline**
 
