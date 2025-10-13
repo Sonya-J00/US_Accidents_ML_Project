@@ -114,13 +114,13 @@ The best performing model is a Gradient Boosting Classifier, optimised through h
 
 |           |   Accuracy    |    Macro f1   |
 |-----------|---------------|---------------|
-|  train    |     0.79      |     0.79      |
+|  train    |     0.76      |     0.77      |
 |  test     |     0.61      |     0.62      |
 
 
-The model demonstrates moderate performance, with some class imbalance effects; it effectively distinguishes *Short* (0.69) and *Very Long* (0.73) classes compared to *Moderate* (0.43) and *Long* (0.61). This likely represents overlapping patterns in the underlying features.
+The model demonstrates moderate performance, with some class imbalance effects; it more effectively distinguishes *Short* (0.68) and *Very Long* (0.72) classes compared to *Moderate* (0.46) and *Long* (0.61), that likely represents overlapping patterns in the underlying features. However, the most important criteria for model performance was overall accuracy of predicting *Very Long* incidents, which what this model was optimised for.
 
-The model attempts to balance bias and variance, but there is some overfitting and room for improvement via additional data features (e.g. persons injured, ambulence/ fire service needed), feature engineering (extraction of more data from location and datetime) or ensemble methods. 
+The model attempts to balance bias and variance, but there is some overfitting and room for improvement via additional data features (e.g. persons injured, ambulence/ fire service needed), feature engineering (extraction of more data from location and datetime) or ensemble learning technicques such as model stacking. 
 
 **Model Pipeline**
 
