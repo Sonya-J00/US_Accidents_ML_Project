@@ -1,5 +1,4 @@
 # US Car Accidents - Predicting Clearance Time Categories
-
 This project develops a data-driven tool to predict US car accident clearance times, categorised as either: 
 
 - short (< 1 hr) 
@@ -17,7 +16,6 @@ These tools were developed to enable traffic management authorities anticipate r
 
 
 ## Dataset Content
-
 The dataset used for this project is a subsample (500 K) of a larger dataset (~7.7 M) of car accidents that covers 49 states of the USA. The accident data were collected from January 2016 to March 2023, using multiple APIs that provide streaming traffic incident (or event) data. These APIs broadcast traffic data captured by various entities, including the US and state departments of transportation, law enforcement agencies, traffic cameras, and traffic sensors within the road networks. 
 
 The data includes detailed records of:
@@ -28,7 +26,6 @@ The data includes detailed records of:
 
 
 ## Business Requirements
-
 The project is designed to meet the following business needs:
 
 - Predictive Modeling: develop a model that predicts the clearance time category of new or ongoing accidents
@@ -44,26 +41,23 @@ The project is designed to meet the following business needs:
 - Accidents with higher severity level take longer to clear
     - Visualise changes in clearance class (stacked bar chart) and clearance times (box plot) by weather conditions. Use chi-squared and kruskal-Wallis to test for statistical significance 
 
-- The population of the incident area will inpact clearance times
+- The population of the incident area will impact clearance times
     - Visualise differences in clearance class distribution (histogram) and clearance times (scatter plot) and test for statistical significance.
     - As neither of the above visualisations gave a clear picture, population was binned, a contingency table by clearance category made, and chi-squared used to test for statistical significance
 
 ## Project Plan
 
 **Data Cleaning**
-
 - Import and explore dataset 
 - Handle missing values
 - Check for unique incident IDs
 - Handdle repeated rows
 
 **Subsampling**
-
 - Use "Start_Time" and "End_Time" to obtain "Clearance_Time(hr)" => "Clearance_Class" (the target)
 - Use "Clearance_Class" to subsample the data (500 K rows) into a smaller, 10 K row dataset with classes as equal as possible 
 
 **Feature Engineering**
-
 - Use "Start_Time" to extract month = > "Month"
 - Use "City" and "County" to merge US Census population data => "Population"
 - Aggregate States and Counties that appear less than 5 time => "State_Other" and "County_Other"
@@ -72,10 +66,9 @@ The project is designed to meet the following business needs:
 - Align symbols and words in "Wind_Direction
 
 **Exploratory Data Analysis (EDA)**
-
 - Analyse distribution of numerical variables via histograms and KDE plots; check for normality
 - Analyse count distribution of categorical variables via stacked bar chart; assess statistical significance between clearance class using chi-squared
-- Analyse count distributio of boolean variables via stacked bar chart; assess statistical significance between clearance class using chi-squared
+- Analyse count distribution of boolean variables via stacked bar chart; assess statistical significance between clearance class using chi-squared
 - Analyse clearance times by categoric variable via box plot; assess statistical significance using Kruskal-Wallis test
 - Analyse clearance times by boolean variable via box plot; assess statistical significance using Mann-Whitney U test
 - Analyse clearance times by numerical variables via scatter plot
@@ -96,11 +89,21 @@ The project is designed to meet the following business needs:
 - To extract the top 20 most important features from the model 
 
 **Dashboard**
-
-- 
+- Outline dashboard design Balsamiq wireframes
+- Main Dashboard - cards to predict total clearance times and median clearance times, slicers to investigate main important features, summary bar chart of clearance times
+- Map View - bubble map of accidents, highlighting clearance times, with slicers to investigate main most important features
+- Main Features - more in-depth view of the main features themselves, along with slicers to investigate
+- Overall, the complex dataset will be simplified by only incorporating the top important features (also those of particular interest). Summary cards will be used to clearly display the main predictive outcomes of clearance times, and charts to visualise clearance categories and median clearance times by selected features. Slicers for the most important features gives the user the ability to drill down and narrow predictions.
 
 ## The rationale to map the business requirements to the Data Visualisations
-* List your business requirements and a rationale to map them to the Data Visualisations
+* Preductive modeling: confusion Matrix (train/test), classification Report (precision, recall, F1-score) and feature Importance plot
+    - These visuals evaluate model performance and ensure it generalises well
+* Insight Generation: - box plots of Clearance_Time(hr) by each variable, stacked bar charts showing clearance class distribution by categorical variables, correlation heatmap across all variables. together with statistical testing
+    - These visuals reveal relationships between independent variables and clearance duration
+* Dashboard Visualisation: interactive Power BI visuals including stacked bar charts and map that display the most important features
+    - The interactive visuals enable stakeholders to explore how clearance times vary by geography, time, and environmental conditions. This supports pattern recognition and trend analysis without requiring technical analysis, enhancing usability for traffic management teams
+* Decision Support: feature importance plot, summary statistics and clearance category distributions
+    - These visuals communicate the basis of the model, showing why certain predictions are made. Clear interpretability helps decision-makers trust the model and take actionable steps e.g., allocating additional resources in high-risk areas
 
 ## Analysis techniques used
 * List the data analysis methods used and explain limitations or alternative approaches.
@@ -109,7 +112,6 @@ The project is designed to meet the following business needs:
 * How did you use generative AI tools to help with ideation, design thinking and code optimisation?
 
 ## Modele Overview
-
 The best performing model is a Gradient Boosting Classifier, optimised through hyperparameter tuning using grid search and cross-validation.
 
 |           |   Accuracy    |    Macro f1   |
@@ -122,8 +124,12 @@ The model demonstrates moderate performance, with some class imbalance effects; 
 
 The model attempts to balance bias and variance, but there is some overfitting and room for improvement via additional data features (e.g. persons injured, ambulence/ fire service needed), feature engineering (extraction of more data from location and datetime) or ensemble learning technicques such as model stacking. 
 
-**Model Pipeline**
+**Feature Importance**
+- The top 10 most important features were found to be: Distance(mi), State_Other, Start_Lat, Start_Lng, County_Other, Pressure(in), Population, Temperature(F), Humidity(%), Severity
+- Demonstrates that Size of the accident area is most important feature, followed by location and then environmental conditions
+- Illustrates a need to better understanding how Severity is reported 
 
+**Model Pipeline**
 The project uses a preprocessing and model pipeline that:
 
 - Encodes categorical variables using OneHotEncoder
@@ -142,9 +148,7 @@ Data is anonymouse and not traceable to individuals, therefore, there are no eth
 * Explain how the dashboard was designed to communicate complex data insights to different audiences. 
 
 ## Unfixed Bugs
-* Please mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation are not valid reasons to leave bugs unfixed.
-* Did you recognise gaps in your knowledge, and how did you address them?
-* If applicable, include evidence of feedback received (from peers or instructors) and how it improved your approach or understanding.
+* No unfixed bugs
 
 ## Development Roadmap
 * What challenges did you face, and what strategies were used to overcome these challenges?
@@ -156,21 +160,19 @@ Data is anonymouse and not traceable to individuals, therefore, there are no eth
 
 
 ## Credits 
-
 - For the dataset: Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. "Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights." In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
 - ChatGPT: for 
 * In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
 * You can break the credits section up into Content and Media, depending on what you have included in your project. 
 
 ### Content 
-
+- Kaggle for the US Accidents Dataset (https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents/)
 - US city and county population data from the United States Census Bureau (https://www.census.gov/programs-surveys/acs/)
 
 ### Media
-
 - The photos used on the home and sign-up page are from This Open-Source site
 - The images used for the gallery page were taken from this other open-source site
 
 
 ## Acknowledgements (optional)
-* I would like to thank Neil and Vasi for their help and support
+* I would like to thank Neil and Vasi from Code Institute for their help and support
