@@ -97,6 +97,13 @@ The project is designed to meet the following business needs:
 - Map View - bubble map of accidents, highlighting clearance times, with slicers to investigate main most important features
 - Main Features - more in-depth view of the main features themselves, along with slicers to investigate
 - Overall, the complex dataset will be simplified by only incorporating the top important features (also those of particular interest). Summary cards will be used to clearly display the main predictive outcomes of clearance times, and charts to visualise clearance categories and median clearance times by selected features. Slicers for the most important features gives the user the ability to drill down and narrow predictions.
+       
+Below are pictures of each dashboard page. An extra page was added to show both clearance categories and median clearance times by County and State etc. as this could not be combined into the same visualisation.
+
+<img src="Assets/Pictures/Dashboard_1.png" width="300" height="300">
+<img src="Assets/Pictures/Dashboard_2.png" width="300" height="300">
+<img src="Assets/Pictures/Dashboard_3.png" width="300" height="300">
+<img src="Assets/Pictures/Dashboard_4.png" width="300" height="300">
 
 ## The rationale to map the business requirements to the Data Visualisations
 * Preductive modelling: confusion Matrix (train/test), classification Report (precision, recall, F1-score) and feature Importance plot
