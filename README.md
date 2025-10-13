@@ -13,7 +13,7 @@ Through exploratory data analysis (EDA), key factors such as location, distance,
 
 A Gradient Boosting classifier model was trained, and evaluated using a confusion matrix and performance metrics such as accuracy and f1-score, to classify new incidents into a clearance time category. The results, including feature importance, are visualised through an interactive Power BI dashboard that displaysreal-time predictions, feature importance and historical trends.
 
-These tools were developed to enable traffic management authorities anticipate road clearance durations to allocate resources efficiently, manage congestion and communicate accurate travel updates. This data solution integrates data analysis, predictive modeling and intuitive visualisations to support informed, data-driven decision making in traffic management.
+These tools were developed to enable traffic management authorities anticipate road clearance durations to allocate resources efficiently, manage congestion and communicate accurate travel updates. This data solution integrates data analysis, predictive modelling and intuitive visualisations to support informed, data-driven decision making in traffic management.
 
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
@@ -31,7 +31,7 @@ The data includes detailed records of:
 ## Business Requirements
 The project is designed to meet the following business needs:
 
-- Predictive Modeling: develop a model that predicts the clearance time category of new or ongoing accidents
+- Predictive Modelling: develop a model that predicts the clearance time category of new or ongoing accidents
     - It is more important that *Long* and *Very Long* clearance times be predicted accuracy compared to *Short* and *Moderate*, as they will require more planning and resources 
 - Insight Generation: identify key factors that influence prolonged clearance times, and also if the model could benefit from more detailed variables
 - Dashboard Visualisation: create an interactive dashboard displaying predicted clearance categories, contributing factors and historical trends
@@ -82,7 +82,7 @@ The project is designed to meet the following business needs:
 **Transformation of Numerical Variables**
 - Find out which transformers work best for each numberical variable, except Start_Lat and Start_Lng, which are not technically numeric
 
-**Preprocessing and Modeling**
+**Preprocessing and Modelling**
 - Scale numerical data and One-Hot encode categorical data
 - To model with and without transformation of numerical variables
 - To model with and without scaled Start_Lat and Start_Lng
@@ -99,7 +99,7 @@ The project is designed to meet the following business needs:
 - Overall, the complex dataset will be simplified by only incorporating the top important features (also those of particular interest). Summary cards will be used to clearly display the main predictive outcomes of clearance times, and charts to visualise clearance categories and median clearance times by selected features. Slicers for the most important features gives the user the ability to drill down and narrow predictions.
 
 ## The rationale to map the business requirements to the Data Visualisations
-* Preductive modeling: confusion Matrix (train/test), classification Report (precision, recall, F1-score) and feature Importance plot
+* Preductive modelling: confusion Matrix (train/test), classification Report (precision, recall, F1-score) and feature Importance plot
     - These visuals evaluate model performance and ensure it generalises well
 * Insight Generation: - box plots of Clearance_Time(hr) by each variable, stacked bar charts showing clearance class distribution by categorical variables, correlation heatmap across all variables. together with statistical testing
     - These visuals reveal relationships between independent variables and clearance duration
@@ -108,14 +108,14 @@ The project is designed to meet the following business needs:
 * Decision Support: feature importance plot, summary statistics and clearance category distributions
     - These visuals communicate the basis of the model, showing why certain predictions are made. Clear interpretability helps decision-makers trust the model and take actionable steps e.g., allocating additional resources in high-risk areas
 
-## Analysis techniques used
+## Analysis techniques
 
 **Data Analysis Methods**
-The project combined exploratory, statistical, and predictive modeling approaches to understand and predict accident clearance times:
+The project combined exploratory, statistical, and predictive modelling approaches to understand and predict accident clearance times:
 - Exploratory Data Analysis (EDA): Used descriptive statistics, histograms, KDE plots, box plots, and scatter plots to assess distributions and relationships between variables.
 - Statistical Testing: Employed Chi-squared, Kruskal–Wallis, and Mann–Whitney U tests to assess significance between clearance categories and predictors (e.g., weather, severity, population).
-- Feature Engineering: Simplified, aggregated and derived new features (Clearance_Class, the target), encoded categorical features, and scaled numerical values for modeling.
-- Predictive Modeling: Trained and evaluated classification models to predict clearance time categories, with emphasis on interpretability (feature importance, confusion matrix, classification report).
+- Feature Engineering: Simplified, aggregated and derived new features (Clearance_Class, the target), encoded categorical features, and scaled numerical values for modelling.
+- Predictive Modelling: Trained and evaluated classification models to predict clearance time categories, with emphasis on interpretability (feature importance, confusion matrix, classification report).
 
 **Limitations and Alternatives**
 Several constraints shaped the analytical strategy:
@@ -179,26 +179,17 @@ Throughout the project, several technical and analytical challenges were encount
 - Data quality and missing values: the raw dataset contained missing and inconsistent entries across key variables (e.g., weather, wind direction). These were addressed through data cleaning, mapping to simplified categories, and domain-informed imputations to maintain interpretability without introducing bias.
 - Imbalanced clearance categories: the *Very Long* clearance classes was underrepresented, which could have impacting model generalisation. To mitigate this, macro-averaged metrics were prioritised over accuracy for fairer performance evaluation.
 - Non-normal distributions and extreme outliers: many numerical variables showed heavy skewness, which limited the use of parametric tests. Non-parametric methods (Kruskal–Wallis, Mann–Whitney U) and robust visualisations, together with transformation of clearance times (boxplots with log scaling) were used instead. A large proportion of the data were statistical outliers. However, these were kept as is, as they fell within expected and valid ranges.
-- Model interpretability: ensuring the predictive model provided interpretable outputs for decision-makers required careful model tuning. Tree-based models were chosen for their balance between performance and explainability, and feature importance plots were used to highlight key predictors of clearance time.
-- Multiple visualisation requirements:creating clear, meaningful plots across many variables required iterative refinement. Seaborn and Matplotlib were used in combination, with automation of subplot generation and consistent labeling to improve readability and reproducibility.
+- Modelling: ensuring the predictive model provided interpretable outputs for decision-makers required careful model tuning in order to balance bias and variance. Due to skew, numerical variables were transformed to potentially benefit modelling, however, no benefit was found. Tree-based models performed best, which was unsurprising given the lack of straightforward linear correlations. Feature importance plots were used to highlight key predictors of clearance categories.
+- Multiple visualisation requirements: creating clear, meaningful plots across many variables required iterative refinement. Seaborn and Matplotlib were used in combination, with automation of subplot generation and consistent labeling to improve readability and reproducibility.
 
 **Next Steps and Skill Development**
 Based on insights gained during this project, several areas for further growth were identified:
-
-Advanced Model Optimisation:
-Learn and apply Bayesian optimisation and ensemble stacking techniques to improve model robustness and predictive power.
-
-Model Explainability and SHAP Analysis:
-Incorporate SHAP or LIME methods for deeper understanding of individual prediction drivers and to enhance model transparency for stakeholders.
-
-Dashboard Deployment:
-Expand technical skills in Plotly Dash or Streamlit for building an interactive dashboard integrating predictions, key insights, and historical trends.
-
-MLOps and Deployment:
-Learn MLflow or Docker for model tracking and deployment, ensuring reproducibility and scalability in real-world traffic management systems.
-* What challenges did you face, and what strategies were used to overcome these challenges?
-* What new skills or tools do you plan to learn next based on your project experience? 
-
+- API integration and automation: develop skills in using APIs (Application Programming Interfaces) to automate data collection and model updates. APIs would allow the model to refresh predictions in real time, supporting dynamic decision-making. Understanding how to authenticate, parse, and schedule API calls
+- Advanced model optimisation: learn and apply Bayesian optimisation and ensemble stacking techniques to improve model robustness and predictive power. Using class weights was tried once, given more time, this option should be explored in greater detail
+- Model Explainability and SHAP Analysis:
+Incorporate SHAP or LIME methods for deeper understanding of individual prediction drivers and to enhance model transparency for stakeholders
+- Dashboard deployment: expand technical skills in Power BI (tooltips) and Streamlit for building an interactive dashboard integrating predictions, key insights, and historical trends
+- MLOps and Deployment: learn MLflow or Docker for model tracking and deployment, ensuring reproducibility and scalability in real-world traffic management systems.
 
 ## Main Data Analysis Libraries
 * Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
