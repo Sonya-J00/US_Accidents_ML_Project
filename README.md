@@ -192,8 +192,19 @@ Incorporate SHAP or LIME methods for deeper understanding of individual predicti
 - MLOps and Deployment: learn MLflow or Docker for model tracking and deployment, ensuring reproducibility and scalability in real-world traffic management systems.
 
 ## Main Data Analysis Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
-
+* Pandas: loading, saving, manipulation of values in the DataFrame for data clearning, preparation and feature engineering 
+* Numpy: converting time differences and rounding, and Numpy arrays when training models
+* Matplotlib: rendering the plot area
+* Seaborn: plotting of most charts e.g. KDE, box plots, stacked bar charts, scatter plots etc.
+* Plotly: interactive plot of clearance times for County_Other grouped by State_Other
+* Scipy: normality testing
+* Feature-Engine: transformation of numerical variables
+* Statsmodels: QQ plots
+* Math: plot configuration
+* Pingouin: chi-squared, Kruskal-Wallis and Mann-Whitney U statistical tests
+* Dyhton: correlation matrix with numerical and categorical variables
+* Scikit-Learn: for all modelling processes, including Pipeline, Standard Scaler (scaling numerical variables), One Hot Encoder (encoding categorical variables), Grid Search CV (testing multiple models), Gradient Boosting Classifier (and other algorithms)
+* Mord: for the ordinal logistic regression algorithm, LogisticAT
 
 ## Credits 
 - For the dataset: Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. "Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights." In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
