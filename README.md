@@ -1,4 +1,7 @@
 # US Car Accidents - Predicting Clearance Time Categories
+
+<img src="Assets/Pictures/Title_pic.jpg" width="400" height="400">
+
 This project develops a data-driven tool to predict US car accident clearance times, categorised as either: 
 
 - short (< 1 hr) 
@@ -106,10 +109,35 @@ The project is designed to meet the following business needs:
     - These visuals communicate the basis of the model, showing why certain predictions are made. Clear interpretability helps decision-makers trust the model and take actionable steps e.g., allocating additional resources in high-risk areas
 
 ## Analysis techniques used
-* List the data analysis methods used and explain limitations or alternative approaches.
-* How did you structure the data analysis techniques. Justify your response.
-* Did the data limit you, and did you use an alternative approach to meet these challenges?
-* How did you use generative AI tools to help with ideation, design thinking and code optimisation?
+
+**Data Analysis Methods**
+The project combined exploratory, statistical, and predictive modeling approaches to understand and predict accident clearance times:
+- Exploratory Data Analysis (EDA): Used descriptive statistics, histograms, KDE plots, box plots, and scatter plots to assess distributions and relationships between variables.
+- Statistical Testing: Employed Chi-squared, Kruskal–Wallis, and Mann–Whitney U tests to assess significance between clearance categories and predictors (e.g., weather, severity, population).
+- Feature Engineering: Simplified, aggregated and derived new features (Clearance_Class, the target), encoded categorical features, and scaled numerical values for modeling.
+- Predictive Modeling: Trained and evaluated classification models to predict clearance time categories, with emphasis on interpretability (feature importance, confusion matrix, classification report).
+
+**Limitations and Alternatives**
+Several constraints shaped the analytical strategy:
+- Data imbalance: Fewer *Very Long* clearance cases may have led to a skewed model performance, however, *Very Long* was still the best performing class. class weighting using Random Forest Classification was tried but did not result in improvement. Alternatives such as SMOTE could improve balance.
+- Non-normal distributions: Clearance times and many numeric variables were heavily skewed, limiting the applicability of parametric tests. Non-parametric alternatives (Kruskal–Wallis, Mann–Whitney U) were therefore used.
+- Missing or incomplete variables: Some potential predictors (e.g., staffing levels, traffic volume, casualties) were unavailable, reducing explanatory power. This was mitigated by feature engineering and focusing on interpretable features.
+
+**Structuring of Analysis**
+The analysis followed a progressive, hypothesis-driven structure:
+- Data cleaning
+- Target and feature engineering
+- EDA to understand distributions and correlations
+- Statistical validation to confirm significant patterns
+- Feature selection based on EDA insights
+- Preprocessing and model training. Evaluation guided by business priorities (accurate prediction of *Very Long* categories).
+
+**Role of Generative AI Tools**
+Generative AI tools (such as ChatGPT) were used for:
+- Ideation: Refining hypotheses and selecting appropriate statistical tests.
+- Design Thinking: Structuring visualisations and analysis flow to align with business requirements.
+- Code Optimisation: Debugging and improving Python scripts (e.g., automating subplots, tuning model evaluation code, refining plotting logic).
+All outputs were reviewed manually to ensure methodological validity and reproducibility.
 
 ## Modele Overview
 The best performing model is a Gradient Boosting Classifier, optimised through hyperparameter tuning using grid search and cross-validation.
@@ -141,16 +169,33 @@ The project uses a preprocessing and model pipeline that:
 ## Ethical considerations
 Data is anonymouse and not traceable to individuals, therefore, there are no ethical considerations that need to be taken into account.
 
-## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
-* How were data insights communicated to technical and non-technical audiences?
-* Explain how the dashboard was designed to communicate complex data insights to different audiences. 
-
 ## Unfixed Bugs
 * No unfixed bugs
 
 ## Development Roadmap
+
+**Challenges and Strategies**
+Throughout the project, several technical and analytical challenges were encountered:
+- Data quality and missing values: the raw dataset contained missing and inconsistent entries across key variables (e.g., weather, wind direction). These were addressed through data cleaning, mapping to simplified categories, and domain-informed imputations to maintain interpretability without introducing bias.
+- Imbalanced clearance categories: the *Very Long* clearance classes was underrepresented, which could have impacting model generalisation. To mitigate this, macro-averaged metrics were prioritised over accuracy for fairer performance evaluation.
+- Non-normal distributions and extreme outliers: many numerical variables showed heavy skewness, which limited the use of parametric tests. Non-parametric methods (Kruskal–Wallis, Mann–Whitney U) and robust visualisations, together with transformation of clearance times (boxplots with log scaling) were used instead. A large proportion of the data were statistical outliers. However, these were kept as is, as they fell within expected and valid ranges.
+- Model interpretability: ensuring the predictive model provided interpretable outputs for decision-makers required careful model tuning. Tree-based models were chosen for their balance between performance and explainability, and feature importance plots were used to highlight key predictors of clearance time.
+- Multiple visualisation requirements:creating clear, meaningful plots across many variables required iterative refinement. Seaborn and Matplotlib were used in combination, with automation of subplot generation and consistent labeling to improve readability and reproducibility.
+
+**Next Steps and Skill Development**
+Based on insights gained during this project, several areas for further growth were identified:
+
+Advanced Model Optimisation:
+Learn and apply Bayesian optimisation and ensemble stacking techniques to improve model robustness and predictive power.
+
+Model Explainability and SHAP Analysis:
+Incorporate SHAP or LIME methods for deeper understanding of individual prediction drivers and to enhance model transparency for stakeholders.
+
+Dashboard Deployment:
+Expand technical skills in Plotly Dash or Streamlit for building an interactive dashboard integrating predictions, key insights, and historical trends.
+
+MLOps and Deployment:
+Learn MLflow or Docker for model tracking and deployment, ensuring reproducibility and scalability in real-world traffic management systems.
 * What challenges did you face, and what strategies were used to overcome these challenges?
 * What new skills or tools do you plan to learn next based on your project experience? 
 
@@ -161,9 +206,8 @@ Data is anonymouse and not traceable to individuals, therefore, there are no eth
 
 ## Credits 
 - For the dataset: Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. "Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights." In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
-- ChatGPT: for 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
+- ChatGPT: for ideation, design thinking and code optimisation
+- Code Institute Data Analytics with AI learning management system
 
 ### Content 
 - Kaggle for the US Accidents Dataset (https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents/)
